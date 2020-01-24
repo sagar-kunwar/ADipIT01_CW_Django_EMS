@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<body>
+
+	<style type="text/css">
+		 a{
+			font-family: 'Rock Salt', cursive;
+		}		
+	</style>
+
+	<br><br><br>
+
+{% if user.is_authenticated %}
+	<img src="{{user.profile.image.url}}" class="rounded-circle" alt="My Profile" width="304" height="236">
+
+	<h2><center>Welcome! {{ user.username }}</center></h2>
+
+	<style type="text/css">
+		h2{
+			font-family: 'Sedgwick Ave Display', cursive;
+		}
+	</style>
+
+{% else %}
+	<h2><center>Please Login to continue </h2></center> 
+
+	<style type="text/css">
+		h2{
+			font-family: 'Sedgwick Ave Display', cursive;		}
+	</style>
+
+{% endif %}
+
+</body>
+
+{% endblock %}

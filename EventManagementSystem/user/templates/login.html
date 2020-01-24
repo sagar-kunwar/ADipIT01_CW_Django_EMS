@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% block content %}
+	
+	<style type="text/css">
+		legend, input{
+			font-family: 'Sedgwick Ave Display', cursive;
+			font-size: 32px;
+		}
+		p, a{
+			font-family: 'Rock Salt', cursive;
+		}
+		.username{
+			font-family: font-family: 'Aladin', cursive;
+		}
+	</style>
+	
+	<form method="POST" class="form-group">
+		{% csrf_token %}
+		{{form.as_p}}
+
+		<center><legend>Log In</legend></center>
+		Username :<input type="text" name="username" placeholder="User Name"><br><br>
+		Password: <input type="password" name="password1" placeholder="Password"><br><br>
+		
+	<center><button class="btn btn-success" type="Submit">Log In</button>   <small><a href="{% url 'password_reset' %}">Oops! Forgot Password</a></small></center>
+
+	</form>
+
+
+	{% for message in messages %}
+			<script type="text/javascript">
+  				alert('{{message}}');
+			</script>
+	{% endfor %}
+	<br> <br> <br>
+
+	<small>
+		<center><p>Need an account? </p><a class="btn waves-effect waves-red" href="{% url 'register' %} ">Sign Up</a></center>
+	</small>
+
+
+{% endblock %}
+
+
+	
