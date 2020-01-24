@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% block content %}
+<br><br>
+
+<style type="text/css">
+		 legend{
+			font-family: 'Sedgwick Ave Display', cursive;
+			font-size: 32px;
+		}
+		p, a{
+			font-family: 'Rock Salt', cursive;
+		}
+		
+	</style>
+
+<div class="media border p-3">
+	<div class="media-body">
+	<h2>{{ user.username }}</h2>
+	<p>{{ user.email }}</p>
+	</div>
+	<center><img src="{{user.profile.image.url}}" class="rounded-circle" alt="My Profile" width="304" height="236"></center>
+	<style type="text/css">
+		h2,p{
+			font-family: 'Sedgwick Ave Display', cursive;
+		}
+	</style>
+</div>
+
+	<!--Form Here-->
+	<form method="POST" enctype="multipart/form-data" class="form-group" >
+		<center><legend>Profile Info</legend></center>
+		{% csrf_token %}
+		{{uform.as_p}}
+		{{pform.as_p}}			
+		
+		<center><button class="btn btn-success" type="Submit">Update</button></center>
+	</form>
+	<br><br><br>
+
+{% endblock %}
+
+
+	
